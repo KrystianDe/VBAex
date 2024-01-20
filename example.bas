@@ -237,3 +237,70 @@ Sub EBITTemp()
         '----
         'R1C1 = (10 - 5) * 1000 - 100
 End Sub
+
+
+Sub DEBTPMT()
+    'Generet template with creating new sheet
+    'Sheets.Add.Name = "PMT"
+    With Sheets("PMT")
+    .[a1] = "Data"
+    .[a2] = "Present Value"
+    .[a3] = "Number of years"
+    .[a4] = "Frequency of payments"
+    .[a5] = "Rate"
+    .[a7] = "PMT"
+    .[b2] = 100000
+    .[b3] = 30
+    .[b4] = 12
+    .[b5] = 0.08
+    .[b7].FormulaR1C1 = "=PMT(r[-2]c/r[-3]c,r[-3]c*r[-4]c,-r[-5]c)"
+    .[a2:b5].Borders.LineStyle = xlContinuous
+    .[a7:b7].Borders.LineStyle = xlContinuous
+    End With
+   
+    '[b7].FormulaR1C1 = "=PMT(r[-2]c/r[-3]c,r[-3]c*r[-4]c,-r[-5]c)"
+    'Dla ---
+    'Data
+    'Present Value   100000
+    'Number of years 30
+    'Frequency of payments   12
+    'Rate 0.08
+    '
+    'PMT $733.76
+    '----
+    'PMT TO FORMULA WBUDOWANA W VBA
+    'R1C1 = PMT( 0.08/12, 12*30, -100000)
+    
+
+        
+End Sub
+
+
+Sub DEBTPMTSIM()
+
+ 
+    Dim nofs As Long
+        nofs = InputBox("How many simulation You would like to get?")
+    
+    [d:f].Clear
+    With Sheets("PMT")
+    .[d1] = "No."
+    .[e1] = "Rate"
+    .[f1] = "PMT"
+    .[d1:f1].Borders.LineStyle = xlContinuous
+    
+    End With
+    
+        For i = 1 To nofs Step 1
+            With Sheets("PMT")
+            .[b5] = 0.0372 + Rnd() * (0.1 - 0.0372)
+            .Cells(i + 1, 4) = i
+            .Cells(i + 1, 5) = [b5]
+            .Cells(i + 1, 6) = [b7]
+            For j = 4 To 6 Step 1
+                .Cells(i + 1, j).Borders.LineStyle = xlContinuous
+            Next j
+            End With
+        Next i
+        
+End Sub
