@@ -73,3 +73,29 @@ Sub LoopTask2()
 End Sub
 
 
+
+Sub Task3()
+
+    'Piotr option 1
+    'Od 1 id co 0.5 wartosci az do 100.5
+    Dim i As Long ''Long-2^32
+    For i = 1 To 200 Step 1
+        Cells(i, 1) = i / 2 + 1 / 2
+    Next i
+    
+    'Option math 2 'wypisanie od 1 do 100 ale z przerwa pomiedzy liczbami
+   
+    For i = 1 To 100 Step 1
+        Cells((i * 2) - 1, 2) = i
+    Next i
+        
+    'Option 3 VBA Logic'wypisanie od 1 do 100 ale z przerwa pomiedzy liczbami
+    Dim j As Long ''Long-2^32
+    For i = 1 To 200 Step 2
+        j = j + 1
+        Cells(i, 4) = j
+    Next i
+
+  
+End Sub
+
