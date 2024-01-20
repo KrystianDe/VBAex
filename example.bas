@@ -130,3 +130,15 @@ Sub Task5()
 End Sub
 
 
+Sub Task6()
+    'Stworzenie obszaru 4x3 z wartosciami od 1 do 12
+    Dim column, row, index As Long
+    For column = 1 To 3 Step 1
+        For row = 1 To 4 Step 1
+            index = index + 1
+            Cells(row + 1, column + 1) = index
+        Next row
+    Next column
+End Sub
+
+
