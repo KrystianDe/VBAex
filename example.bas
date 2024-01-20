@@ -168,3 +168,17 @@ Sub Randomizer()
         Cells(i, 3) = 5 + Rnd() * (10 - 5)
     Next i
 End Sub
+
+
+Sub BEPSIM()
+
+    Dim i As Long
+        
+        For i = 1 To 100 Step 1
+            'Put radnom number between 5 and 10 in b2 cell
+            [b2] = 5 + Rnd() * (10 - 5)
+            
+        Next i
+        
+End Sub
+
