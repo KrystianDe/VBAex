@@ -33,3 +33,10 @@ Sub InsertWorksheet()
     Worksheets.Add after:=Worksheets(2)
     Worksheets.Add(after:=Worksheets(4)).Name = "MySh"
 End Sub
+
+
+
+Sub InsertComment()
+    [a1].clearComment
+    [a1].AddComment = "Sth"
+End Sub
