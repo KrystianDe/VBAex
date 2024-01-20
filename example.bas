@@ -117,3 +117,16 @@ Sub Quiz()
 End Sub
 
 
+
+Sub Task5()
+    'Stworzenie obszaru 3x3 z wartosciami od 1 do 9
+    Dim column, row, i As Long
+    For row = 2 To 4 Step 1
+        For column = 2 To 4 Step 1
+            i = i + 1
+            Cells(row, column) = i
+        Next column
+    Next row
+End Sub
+
+
