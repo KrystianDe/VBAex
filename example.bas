@@ -182,3 +182,58 @@ Sub BEPSIM()
         
 End Sub
 
+
+Sub BEPSIM2()
+    
+
+    Dim nofs As Long
+        nofs = InputBox("How many simulation You would like to get?")
+    [d:f].Clear
+    Dim i As Long
+    [d1] = "No."
+    [e1] = "Price"
+    [f1] = "BEP"
+    'drawing border
+    [d1:f1].Borders.LineStyle = xlContinuous
+    
+        For i = 1 To nofs Step 1
+            
+            [b2] = 5 + Rnd() * (10 - 5)
+            Cells(i + 1, 4) = i
+            Cells(i + 1, 5) = [b2]
+            Cells(i + 1, 6) = [b6]
+            For j = 4 To 6 Step 1
+                'drawing border on created cells
+                Cells(i + 1, j).Borders.LineStyle = xlContinuous
+            Next j
+        Next i
+        
+End Sub
+
+Sub EBITTemp()
+
+    [a1] = "Data"
+    [a2] = "Price"
+    [a3] = "Variable cost"
+    [a4] = "Fixed cost"
+    [a5] = "Quantity"
+    [a7] = "EBIT"
+    [b2] = 10
+    [b3] = 5
+    [b4] = 100
+    [b5] = 1000
+    [a2:b5].Borders.LineStyle = xlContinuous
+    [a7:b7].Borders.LineStyle = xlContinuous
+    
+    [b7].FormulaR1C1 = "=(r[-5]c-r[-4]c)*r[-2]c-r[-3]c"
+        'Dla ---
+        'Data
+        'Price 10
+        'Variable cost   5
+        'Fixed cost  100
+        'Quantity 1000
+        '
+        'EBIT 4900
+        '----
+        'R1C1 = (10 - 5) * 1000 - 100
+End Sub
