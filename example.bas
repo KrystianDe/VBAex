@@ -304,3 +304,58 @@ Sub DEBTPMTSIM()
         Next i
         
 End Sub
+
+
+
+Sub WarmUpTask1()
+    Dim oW As Worksheet
+    Dim i, nofs As Long
+        nofs = InputBox("How many samples you would like to get?")
+   
+    Set oW = Sheets.Add
+        oW.Name = "BEP" & Sheets.Count
+    
+    With oW
+        .[a1] = "Date"
+        .[a2] = "Price"
+        .[a3] = "Variable Cost"
+        .[a4] = "Fixed cost"
+        .[a6] = "BEP"
+        .[b2] = 100
+        .[b3] = 50
+        .[b4] = 1000
+        .[b6].FormulaR1C1 = "=r[-2]c/(r[-4]c-r[-3]c)"
+        .[a1:b1].Merge
+        .[a1:b4].Borders.LineStyle = 1
+        .[a6:b6].Borders.LineStyle = 1
+        .[d1] = "No."
+        .[e1] = "Price"
+        .[f1] = "Bep"
+        
+         For i = 1 To nofs Step 1
+            .[b2] = 50 + Rnd() * (200 - 50)
+            .Cells(i + 1, 4) = i
+            .Cells(i + 1, 5) = [b2]
+            .Cells(i + 1, 6) = [b6]
+            
+            For j = 4 To 6 Step 1
+                .Cells(i + 1, j).Borders.LineStyle = 1
+            Next j
+        Next i
+    End With
+    
+Sub WarmUpTask2()
+    Dim i, nofs As Long
+    nofs = InputBox("How many samples you would like to get?")
+    
+    For i = 1 To nofs Step 1
+        [b2] = 50 + Rnd() * (200 - 50)
+        Cells(i + 1, 4) = i
+        Cells(i + 1, 5) = [b2]
+        Cells(i + 1, 6) = [b6]
+    Next i
+    
+
+   
+    
+End Sub
