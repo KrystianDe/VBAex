@@ -142,3 +142,16 @@ Sub Task6()
 End Sub
 
 
+Sub TabliczkaMnozenia()
+    Dim i, j, w As Long
+    For i = 1 To 10 Step 1
+        For j = 1 To 10 Step 1
+            
+            Cells(i + (10 * (j - 1)), j) = j
+            Cells(i + (10 * (j - 1)), j + 1) = i
+            Cells(i + (10 * (j - 1)), j + 2) = i * j
+            
+        Next j
+       
+    Next i
+End Sub
