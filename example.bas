@@ -40,3 +40,10 @@ Sub InsertComment()
     [a1].clearComment
     [a1].AddComment = "Sth"
 End Sub
+
+
+Sub Task1()
+    'Rozciaga obszar czyli zaznacza b2, b3, b4, c2, c3, c4, d2, d3, d4
+    [b2:d4] = 1
+End Sub
+
