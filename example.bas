@@ -155,3 +155,16 @@ Sub TabliczkaMnozenia()
        
     Next i
 End Sub
+
+
+Sub Randomizer()
+    'Random number
+    Dim i As Long
+    
+    For i = 1 To 100 Step 1
+        'Random between o and 1
+        Cells(i, 2) = Rnd()
+        'Random between 5 and 10
+        Cells(i, 3) = 5 + Rnd() * (10 - 5)
+    Next i
+End Sub
