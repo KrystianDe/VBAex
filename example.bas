@@ -58,3 +58,18 @@ Sub LoopStatment()
 
 End Sub
 
+
+Sub LoopTask2()
+    'Strzalka do górnego lewego rogu
+    'lewa kolumna, pierwszy wiersz i przekatna
+    Dim i As Long ''Long-2^32
+    
+        For i = 1 To 100 Step 1
+            Cells(i, 1) = i
+            Cells(i, i) = i
+            Cells(1, i) = i
+        Next i
+        
+End Sub
+
+
