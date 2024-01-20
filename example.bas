@@ -99,3 +99,21 @@ Sub Task3()
   
 End Sub
 
+
+Sub Quiz()
+
+    Dim i, j As Long ''Long-2^32
+    For i = 1 To 20 Step 1
+        Cells((i * 4) - 3, 1) = i
+        Cells((i * 4) - 3, 2) = "Question"
+        Cells((i * 4) - 2, 2) = "A"
+        Cells((i * 4) - 2, 3) = "B"
+        Cells((i * 4) - 2, 4) = "C"
+        For j = 2 To 4 Step 1
+            Cells((i * 4) - 1, j) = "Answer"
+        Next j
+        
+    Next i
+End Sub
+
+
