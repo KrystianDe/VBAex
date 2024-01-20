@@ -26,3 +26,10 @@ Sub DefiningRanges()
         Worksheets("VBAStudie.xlsm").Sheets(2).[c2] = 20000
     
 End Sub
+
+
+Sub InsertWorksheet()
+    Worksheets.Add
+    Worksheets.Add after:=Worksheets(2)
+    Worksheets.Add(after:=Worksheets(4)).Name = "MySh"
+End Sub
