@@ -359,3 +359,149 @@ Sub WarmUpTask2()
    
     
 End Sub
+
+
+Sub IfStatement()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+        
+        If Cells(i, 2) > 15 Then
+            Cells(i, 2).Interior.Color = RGB(255, 0, 0)
+        ElseIf Cells(i, 2) > 12 Then
+            Cells(i, 2).Interior.Color = RGB(0, 0, 255)
+        Else
+            Cells(i, 2).Interior.Color = RGB(0, 255, 0)
+        End If
+    
+    Next i
+End Sub
+
+Sub Task3344()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+        For j = 2 To 5 Step 1
+            If Cells(i, j) > 15 Then
+                Cells(i, j).Interior.Color = RGB(255, 0, 0)
+            ElseIf Cells(i, j) > 12 Then
+                Cells(i, j).Interior.Color = RGB(0, 0, 255)
+            Else
+                Cells(i, j).Interior.Color = RGB(0, 255, 0)
+            End If
+        Next j
+    Next i
+End Sub
+
+
+Sub Task34()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+            If Cells(i, 3) > 15 Then
+                Cells(i, 3).Font.Color = RGB(255, 0, 0)
+            ElseIf Cells(i, 3) > 12 Then
+                Cells(i, 3).Font.Color = RGB(0, 0, 255)
+            Else
+                Cells(i, 3).Font.Color = RGB(0, 255, 0)
+            End If
+    Next i
+End Sub
+
+Sub Task334()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+            If Cells(i, 3) > 15 Then
+                Cells(i, 3).Font.Color = RGB(0, 0, 0)
+            ElseIf Cells(i, 3) > 12 Then
+                Cells(i, 3).Font.Color = RGB(0, 0, 0)
+            Else
+                Cells(i, 3).Font.Color = RGB(0, 0, 0)
+            End If
+    Next i
+End Sub
+
+Sub Task4()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+            If Cells(i, 3) > 6 Then
+                Cells(i, 3).Font.Color = RGB(255, 0, 0)
+            ElseIf Cells(i, 3) > 5.5 Then
+                Cells(i, 3).Font.Color = RGB(0, 0, 255)
+            Else
+                Cells(i, 3).Font.Color = RGB(0, 255, 0)
+            End If
+    Next i
+End Sub
+
+
+Sub IfStatement2Conditions()
+
+    Dim i As Long
+    
+    For i = 2 To 1001 Step 1
+        If Cells(i, 2) > 15 And Cells(i, 3) > 6 Then
+            Cells(i, 6) = "OK"
+        ElseIf Cells(i, 2) > 12 Or Cells(i, 3) > 5.5 Then
+            Cells(i, 6) = "Maybe"
+        Else
+            Cells(i, 6) = "NOK"
+        End If
+    Next i
+End Sub
+
+
+Sub task5()
+
+    Dim i, j As Long
+        j = ActiveSheet.UsedRange.Rows.Count
+    For i = j To 1 Step -1
+        If Cells(i, 4) > 20 Then
+            Rows(i).EntireRow.Delete
+        End If
+    Next i
+End Sub
+
+'Code for form
+Private Sub CommandButton1_Click()
+
+    Dim oW As Worksheet
+    Dim i, j As Long
+    
+    Set oW = Sheets.Add
+        oW.Name = "BEP" & Sheets.Count
+        
+    With oW
+        .[a1] = "No."
+        .[b1] = "Price"
+        .[c1] = "Variable Cost"
+        .[d1] = "Fixed cost"
+        .[e1] = "BEP"
+        
+        For i = 1 To UserForm1.Sample.Value Step 1
+            .Cells(i + 1, 1) = i
+            .Cells(i + 1, 2) = UserForm1.Pmin.Value + Rnd() * (UserForm1.Pmax.Value - UserForm1.Pmin.Value)
+            .Cells(i + 1, 3) = UserForm1.VCmin.Value + Rnd() * (UserForm1.VCmax.Value - UserForm1.VCmin.Value)
+            .Cells(i + 1, 4) = UserForm1.FCmin.Value + Rnd() * (UserForm1.FCmax.Value - UserForm1.FCmin.Value)
+            .Cells(i + 1, 5) = .Cells(i + 1, 4) / (.Cells(i + 1, 2) - .Cells(i + 1, 3))
+             For j = 1 To 5 Step 1
+                .Cells(i + 1, j).Borders.LineStyle = 1
+            Next j
+            
+        Next i
+        
+            
+            
+            
+        
+    
+    End With
+
+End Sub
