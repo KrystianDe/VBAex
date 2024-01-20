@@ -47,3 +47,14 @@ Sub Task1()
     [b2:d4] = 1
 End Sub
 
+
+Sub LoopStatment()
+
+    Dim i As Long 'Long-2^32
+        
+    For i = 1 To 100 Step 1
+        Cells(i, 1) = i
+    Next i
+
+End Sub
+
